@@ -180,7 +180,7 @@ const fact = (expression) => {
 // }
 
 
-const alretfunction = () => {
+const alretfunction = (final_output) => {
 
 	if (final_output != 0){
 	header.setAttribute("style", "margin-left: 490px;background-color: rgb(241 243 244);padding: 30px;width: 23%;");
