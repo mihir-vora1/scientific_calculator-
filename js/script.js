@@ -1,13 +1,15 @@
 console.log("scientific calculator");
 
+
 const actions = document.querySelector('.actions');
-
-// input field of value
-const ans = document.querySelector('.ans');
+const header = document.querySelector('.header');
+// input field
+// accessing the user input field value
+const ans = document.querySelector('.input_field');
 console.log(actions);
-const mplus = [0];
-const mminus = [0];
-
+let mplus = [0];
+let mminus = [0];
+let final_output = 0;
 // use the let for assigning the value to expression
 let expression = '';
 let a=0;
@@ -49,9 +51,73 @@ actions.addEventListener('click', (e) => {
 			console.log(mminus[0]);
 		}
 		else if(value == 'ms'){
-			expression = mplus[0] - mminus[0];
+			final_output = mplus[0] - mminus[0];
+			expression = '';
+			ans.value = 0;
+			alretfunction(final_output);
+			// display the message final output are stored in memory
+			console.log(final_output);
 		}
-
+		else if(value == 'mc'){
+			mplus = [0]
+			mminus = [0]
+			final_output = 0;
+			expression = '';
+			ans.value = 0;
+		}
+		else if(value == 'mr'){
+			expression = final_output;
+		}
+		else if(value == 'log'){
+			let ans = Math.log10(expression);
+			expression = ans;
+		}
+		// calculating the factorial number
+		else if(value == '!'){
+			expression = fact(expression);
+		}
+		else if(value == 'deg'){
+			expression = expression * (Math.PI/180);
+		}
+		else if(value == 'euler_number'){
+			expression = '2.718281828459045';
+			console.log("expression", expression);
+		}
+		else if(value == 'abs'){
+			expression = Math.abs(eval(expression));
+			
+		}
+		// exponential function
+		else if(value == 'exp'){
+			// let e = '2.718281828459045';
+			expression = Math.exp(expression);
+		}
+		// sqrt function
+		else if(value == 'sqrt'){
+			expression = Math.sqrt(expression);
+		}
+		else if(value == '10squarex'){
+			expression = 10 ** expression
+		}
+		// x ** y operation
+		else if(value == 'xsquarey'){
+			expression += "**";
+		}
+		else if(value == 'natural_logarithm'){
+			expression = Math.log(expression)
+		}
+		else if(value == 'fe'){
+			expression = parseFloat(expression).toExponential(2);
+		}
+		else if(value == 'plus&minus'){
+			if (expression[0] == '+'){
+				console.log("plus");
+				expression = '-' + expression.slice(1)	;
+			}
+			else{
+				expression = '+' + expression.slice(1)	;
+			}
+		}
 		// else if (value == 'm+'){
 		// 	var mm1 = mm1 + expression;
 		// 	localStorage.setItem(value, mm1);
@@ -77,8 +143,6 @@ actions.addEventListener('click', (e) => {
 			ans.value = expression;
 		}
 		// expression += value;
-
-
 	}
 
 });
@@ -91,6 +155,43 @@ const square =()=> {
 // function for reciprocal function operation
 const reciprocalfn = () => {
 	return eval(1/expression)
+}
+
+// calculating the factorial number
+const fact = (expression) => {
+	if(expression < 0){
+		return 0;
+	}
+	else if (expression === 1){
+		return 1;
+	}
+	else{
+		let fact_no = 1;
+		for (i=1; i<=expression; i++){
+			fact_no *= i;
+		}
+		return fact_no;
+	}
+}
+
+// const xsquarey = () => {
+// 	expression += '**';
+
+// }
+
+
+const alretfunction = () => {
+
+	if (final_output != 0){
+	header.setAttribute("style", "margin-left: 490px;background-color: rgb(241 243 244);padding: 30px;width: 23%;");
+    
+
+	header.innerHTML = 'Output Are Stored in memory';
+	setTimeout(function () {
+	    // Closing the alert
+	        $('#alert').alert('close');
+	    }, 5000);
+	}
 }
 
 

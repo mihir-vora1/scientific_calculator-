@@ -14,6 +14,12 @@ body{
 	text-align: right;
 	font-size: 40px;
 }
+/*.header {
+    margin-left: 490px;
+    background-color: rgb(241 243 244);
+    padding: 30px;
+    width: 23%;
+}*/
 
 .content{
  	background-color: rgb(241 243 244);
@@ -76,6 +82,11 @@ button{
 	outline: none;
 	padding: 30px;
 	font-weight: normal;
+	align-items: center;
 }
 
+.fa-square-root-variable{
+	font-size: 16px;
+	font-weight: none;	
+}
 

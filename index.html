@@ -11,24 +11,33 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<!-- font awesome -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 	<title>Scientific Calculator</title>
 </head>
 <body>
+	<div class="header row mt-3">
+	</div>
 	<div class="container m-5">
+		 
 		<div class="row d-flex justify-content-center">
 			<div class="col-md-4 content">
+
 				<table class="table calculator fw-bold">
 					<thead class="table-heading">
-						<tr class="sc-col-1" >
-							<td colspan=5>
-								<div class="output form-group">
-									<input type="text" name="" class="ans form-control  input-text fw-bold" readonly placeholder="0" />
+						<tr class="sc-col-1 " >
+							<td colspan=5 class="">
+								<div class="output form-group overflow-auto">
+									<input type="text" name="" class="input_field form-control  input-text fw-bold " readonly placeholder="0" />
 								</div>
 							</td>
 						</tr>
 					</thead>
 					<tbody class=" actions">
+
+						<!-- Degree operation -->
 						<tr class="sc-col-2 d-flex">
 							<td class="deg p-2 mr-4">
 								<button class="btn  btn-op fw-bold" data-value="deg">DEG</button>
@@ -37,12 +46,20 @@
 								<button class="btn btn-op fw-bold" data-value="fe">F-E</button>
 							</td>
 						</tr>
+
+						<!-- memory clear operation-->
 						<tr class="sc-col-3 d-flex">
 							<td class="mc p-2 mr-4">
-								<button class="btn sc-col-3-btn btn-op fw-bold opacity-25" data-value="mc">MC</button>
+								<button class="btn sc-col-3-btn btn-op fw-bold opacity-25" data-value="mc">
+									MC
+								</button>
 							</td>
+
+							<!-- memory recall operation, read thef final output from memory -->
 							<td class="mr p-2 mr-4">
-								<button class="btn sc-col-3-btn btn-op fw-bold opacity-25" data-value="mr">MR</button>
+								<button class="btn sc-col-3-btn btn-op fw-bold opacity-25" data-value="mr">
+									MR
+								</button>
 							</td>
 
 							<!-- add the current value in memory | M+ -->
@@ -65,6 +82,7 @@
 									MS
 								</button>
 							</td>
+
 						</tr>
 						<tr class="sc-col-4 d-flex">
 							<td class="trig" colspan=2>
@@ -97,18 +115,22 @@
 							</td>
 
 							<td class="e p-2 mr-4">
-								<button class="btn sc-col-4-btn btn-op fw-bold" data-value="e">e</button>
+								<button class="btn sc-col-4-btn btn-op fw-bold" data-value="euler_number">
+									e
+								</button>
 							</td>
 
 							<!-- clear all the input value -->
 							<td class="clear p-2 mr-4">
-								<button class="btn sc-col-4-btn btn-op fw-bold" data-value="clear">C</button>
+								<button class="btn sc-col-4-btn btn-op fw-bold" data-value="clear">
+								 C
+								</button>
 							</td>
 
 							<!-- remove the one number at a time -->
 							<td class="ms p-2 mr-4">
 								<button class="btn sc-col-4-btn btn-op fw-bold" data-value="delete">
-									<img  class="delete-icon" src="img/icons8-clear-symbol-50.png" src="delete-icon">
+									<span class=" fw-bold" style="font-size: 16px;"> x </span>
 								</button>	
 							</td>
 						</tr>
@@ -127,14 +149,16 @@
 								</button>
 							</td>
 
+							<!-- absolute operation  -->
 							<td class="e p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="|x|">
-									|X|
+								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="abs">
+									|x|
 								</button>
 							</td>
 
+							<!-- exponential operation -->
 							<td class="clear p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="c">
+								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="exp">
 									exp
 								</button>
 							</td>
@@ -150,16 +174,17 @@
 
 						<tr class="sc-col-5 d-flex">
 							<td class="second p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="second">
-									<i class="fa fa-square-root-variable"></i>
-								</button>
+									<button class="fa fa-square-root-variable btn sc-col-5-btn btn-op fw-bold" data-value="sqrt"></button>
 							</td>
+
+							<!-- opening parenthesis operation -->
 							<td class="pi p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="(">
 									(
 								</button>
 							</td>
 
+							<!-- closing parenthesis operation -->
 							<td class="e p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value=")">
 									)
@@ -172,14 +197,16 @@
 								</button>
 							</td>
 
+							<!-- divisions iperation -->
 							<td class="ms p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="/">
 									<!-- &#x00f7; -->
-									<i class="fa-solid fa-divide"></i>
+									÷
 								</button>	
 							</td>
 						</tr>
 
+						<!-- x square y operation -->
 						<tr class="sc-col-5 d-flex">
 							<td class="p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="xsquarey">
@@ -206,14 +233,14 @@
 
 							<td class="ms p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="*">
-									<i class="fa-sharp fa-solid fa-xmark"></i>
+									*
 								</button>	
 							</td>
 						</tr>
 
 						<tr class="sc-col-5 d-flex">
 							<td class="second p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="second">
+								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="10squarex">
 									10<sup>x</sup>
 								</button>
 							</td>
@@ -237,11 +264,12 @@
 
 							<td class="ms p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="-">
-									<i class="fa-solid fa-minus"></i>
+									<span>-</span>
 								</button>	
 							</td>
 						</tr>
 
+						<!-- log operation -->
 						<tr class="sc-col-5 d-flex">
 							<td class="second p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="log">
@@ -268,20 +296,20 @@
 
 							<td class="ms p-2 mr-4">
 								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="+">
-									<i class="fa-sharp fa-solid fa-plus"></i>
+									+
 								</button>	
 							</td>
 						</tr>
 
 						<tr class="sc-col-5 d-flex">
 							<td class="second p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="in">
-									In
+								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="natural_logarithm">
+									LN
 								</button>
 							</td>
 							<td class="pi p-2 mr-4">
-								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="pi">
-									<sup><i class="fa-sharp fa-solid fa-plus"></i></sup>/<sub><i class="fa-solid fa-minus"></i></sub>					
+								<button class="btn sc-col-5-btn btn-op fw-bold" data-value="plus&minus">
+									<sup>+</i></sup>/-			
 								</button>
 							</td>
 
