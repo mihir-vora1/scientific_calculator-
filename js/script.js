@@ -118,6 +118,35 @@ actions.addEventListener('click', (e) => {
 				expression = '+' + expression.slice(1)	;
 			}
 		}
+
+		// trigonometry operation
+
+		// sin operation
+		else if(value == 'sin'){
+			expression = Math.sin(expression  * (Math.PI/180));
+		}
+		// con operation
+		else if(value == 'cos'){
+			expression = Math.cos(expression * (Math.PI/180));
+		}
+		// tan operation
+		else if(value == 'tan'){
+			expression = Math.tan(expression * (Math.PI/180));
+
+		}
+		// sec operation
+		else if(value == 'sec'){
+			expression = 1/(Math.cos(expression * (Math.PI/180)));
+		}
+		// cosec operation
+		else if(value == 'cosec'){
+			expression = 1/(Math.sin(expression * (Math.PI/180)));
+		}
+
+		// cot operation
+		else if(value == 'cot'){
+			expression = 1/(Math.tan(expression * (Math.PI/180)));
+		}
 		// else if (value == 'm+'){
 		// 	var mm1 = mm1 + expression;
 		// 	localStorage.setItem(value, mm1);

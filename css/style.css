@@ -8,8 +8,12 @@ body{
 .form-control{
 	border: none;
 	background-color: rgb(241 243 244);
-
 }
+
+.form-group{
+	overflow: auto;
+}
+
 .input-text{
 	text-align: right;
 	font-size: 40px;
@@ -90,3 +94,15 @@ button{
 	font-weight: none;	
 }
 
+
+.btn-b{
+	border: none;
+}
+
+.dropdown-menu{
+	background-color: rgb(241 243 244);
+}
+
+.dropdown-item:active{
+	background-color: rgb(241 243 244);
+}
