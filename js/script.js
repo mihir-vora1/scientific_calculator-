@@ -70,6 +70,8 @@ actions.addEventListener('click', (e) => {
 		}
 		else if(value == 'log'){
 			let ans = Math.log10(expression);
+
+			console.log("ans", ans);
 			expression = ans;
 		}
 		// calculating the factorial number
